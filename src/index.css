@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: #AAAAAA;
+  background-color: #0C0B08;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+@layer utilities{
+  .btn-pry{
+    @apply font-comorant border-2 mt-2 border-primary bg-primary py-2 px-8 text-[#0C0B08] tracking-[0.04em] font-bold leading-[175%] w-fit hover:bg-transparent hover:text-primary transition-all
+  }
+}
+
