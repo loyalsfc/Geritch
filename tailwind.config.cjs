@@ -11,6 +11,8 @@ module.exports = {
       },
       fontFamily: {
         comorant: ['Cormorant Upright', 'serif'],
+        bestermind: ['Bestermind', 'sans-serif']
+                                                
       },
       backgroundImage: {
         about: "url('./src/assets/about-bg.png')"
