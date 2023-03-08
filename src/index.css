@@ -24,7 +24,10 @@
 
 @layer utilities{
   .btn-pry{
-    @apply font-comorant border-2 mt-2 border-primary bg-primary py-2 px-8 text-[#0C0B08] tracking-[0.04em] font-bold leading-[175%] w-fit hover:bg-transparent hover:text-primary transition-all
+    @apply font-comorant border-2 mt-2 border-primary bg-primary py-2 px-8 text-primaryBlack tracking-[0.04em] font-bold leading-[175%] w-fit hover:bg-transparent hover:text-primary transition-all
   }
 }
 
+*::-webkit-scrollbar{
+  display: none;
+}
