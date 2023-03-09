@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useQuery } from 'react-query'
 import FetchMeals from '../components/FetchMeals'
+import SearchBox from '../components/SearchBox'
+
 
 
 function Page() {
@@ -8,17 +10,18 @@ function Page() {
         fetch('https://www.themealdb.com/api/json/v1/1/categories.php')
         .then(res => res.json())
     )
-    const [currentCategory, setCurrentCategory] = useState(data?.categories[0].strCategory)
+    const [currentCategory, setCurrentCategory] = useState('')
 
-    console.log(currentCategory) 
-    console.log(data)
+    useEffect(()=>{
+        setCurrentCategory(data?.categories[0].strCategory)
+    }, [data])
 
     return (
         <main>
             <div className='container mx-auto py-8'>
-                <div className='flex items-stretch max-w-lg mx-auto'>
-                    <input type="search" className='focus:outline-0 flex-1 px-4 py-4'/>
-                    <button className="btn-pry">Search</button>
+                <div>
+                    <SearchBox />
+                    <p className='text-center mt-2'>Search Meals or Select Categories From Below</p>
                 </div>
                 <div className='grid grid-cols-6 gap-4 p-8'>
                     {
@@ -36,7 +39,7 @@ function Page() {
                     }
                 </div>
                 <div>
-                    {currentCategory && <FetchMeals category={currentCategory}/>}
+                    {/* {currentCategory && <FetchMeals category={currentCategory}/>} */}
                 </div>
             </div>
         </main>

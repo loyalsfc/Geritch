@@ -5,6 +5,8 @@ import './index.css'
 import Home from './pages/Home'
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import Page from './pages/Page'
+import Search from './pages/Search'
+import MealPage from './pages/MealPage'
 
 const router = createBrowserRouter([
   {
@@ -18,6 +20,14 @@ const router = createBrowserRouter([
       {
         path: "/page",
         element: <Page />
+      },
+      {
+        path: "/search",
+        element: <Search />
+      },
+      {
+        path: "/meal/:mealId",
+        element: <MealPage />
       }
     ]
   }
