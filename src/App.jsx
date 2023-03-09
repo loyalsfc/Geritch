@@ -1,13 +1,16 @@
+import { Outlet } from "react-router-dom"
 import Header from "./components/Header"
-import Home from "./pages/Home"
+import { QueryClient, QueryClientProvider } from "react-query"
+
+const queryClient = new QueryClient();
 
 function App() {
 
   return (
-    <>
+    <QueryClientProvider client={queryClient}>
       <Header />
-      <Home />
-    </>
+      <Outlet />
+    </QueryClientProvider>
   )
 }
 

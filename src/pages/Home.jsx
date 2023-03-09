@@ -33,7 +33,7 @@ function Home() {
                         <h3 className='font-comorant font-bold text-2xl tracking-[0.04em] text-white'>Chase the new Flavour</h3>
                         <Icon />
                         <h1 className='font-comorant font-bold leading-[120%] text-[90px] text-primary tracking-[0.04em]'>The key to Fine dining</h1>
-                        <p className='leading-[175%] tracking-[0.04em] '>Sit tellus lobortis sed senectus vivamus molestie. Condimentum volutpat morbi facilisis quam scelerisque sapien. Et, penatibus aliquam amet tellus </p>
+                        <p className='leading-[175%] tracking-[0.04em] mb-2'>Sit tellus lobortis sed senectus vivamus molestie. Condimentum volutpat morbi facilisis quam scelerisque sapien. Et, penatibus aliquam amet tellus </p>
                         <button className='btn-pry'>Explore Menu</button>
                     </article>
                     <ImageFrame image={hero} />
@@ -216,7 +216,7 @@ function Home() {
                         </article>
                         <div className='flex items-center justify-between gap-8'>
                             <input type="text" className='border border-[#F5EFDB] flex-1 px-4 py-5 bg-transparent text-white' placeholder='Email Address'/>
-                            <button className="btn-pry mb-2">Subscribe</button>
+                            <button className="btn-pry">Subscribe</button>
                         </div>
                     </div>
                     <div className='max-w-4xl mx-auto grid grid-cols-3 gap-20 place-content-center text-center'>

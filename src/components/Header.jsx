@@ -1,15 +1,16 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Header() {
     return (
         <div className="container mx-auto">
             <header className='text-white py-4'>
                 <div className='container mx-auto grid grid-cols-3 items-center place-item-center'>
-                    <h2 className='font-bold font-comorant text-[44px] tracking-[0.04em] '>GERICHT</h2>
+                    <Link to="/"><h2 className='font-bold font-comorant text-[44px] tracking-[0.04em] '>GERICHT</h2></Link>
                     <nav>
                         <ul className='tracking-[0.04em] flex gap-8'>
-                            <li className='cursor-pointer'>Home</li>
-                            <li className='cursor-pointer'>Pages</li>
+                            <li className='cursor-pointer'><Link to='/'>Home</Link></li>
+                            <li className='cursor-pointer'><Link to='/page'>Pages</Link></li>
                             <li className='cursor-pointer'>Contact Us</li>
                             <li className='cursor-pointer'>Blog</li>
                             <li className='cursor-pointer'>Landing</li>
