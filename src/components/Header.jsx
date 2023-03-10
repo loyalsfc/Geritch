@@ -17,7 +17,7 @@ function Header() {
                         </ul>
                     </nav>
                     <ul className='flex items-center gap-8 place-self-end'>
-                        <li className='cursor-pointer'>Log In / Registration</li>
+                        <li className='cursor-pointer'><Link to="/saves">Saves</Link></li>
                         <li className='cursor-pointer'>
                             <svg width="2" height="57" viewBox="0 0 2 57" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M1 0V57" stroke="url(#paint0_radial_0_364)"/>

@@ -39,7 +39,7 @@ function Page() {
                     }
                 </div>
                 <div>
-                    {/* {currentCategory && <FetchMeals category={currentCategory}/>} */}
+                    {currentCategory && <FetchMeals category={currentCategory}/>}
                 </div>
             </div>
         </main>

@@ -26,6 +26,9 @@
   .btn-pry{
     @apply font-comorant border-2 border-primary bg-primary py-2 px-8 text-primaryBlack tracking-[0.04em] font-bold leading-[175%] w-fit hover:bg-transparent hover:text-primary transition-all
   }
+  .meal-title{
+    @apply font-comorant font-bold text-3xl text-center mb-2
+  }
 }
 
 *::-webkit-scrollbar{

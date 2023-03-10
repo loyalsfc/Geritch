@@ -7,7 +7,7 @@ import SearchBox from '../components/SearchBox';
 
 function Search() {
     const [searchParams, SetSearchParams] = useSearchParams();
-    const param = searchParams.get('search')
+    const param = searchParams.get('q')
     const {isLoading, error, data} = useQuery(['search', param], () =>
         fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${param}`)
         .then(res => res.json())

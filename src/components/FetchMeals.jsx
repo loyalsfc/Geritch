@@ -3,6 +3,7 @@ import { useQuery } from 'react-query'
 import MealCard from './MealCard'
 
 function FetchMeals({category}) {
+    
     const {isLoading, error, data} = useQuery(['meals', category], () =>
         fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`)
         .then(res => res.json())
@@ -17,7 +18,8 @@ function FetchMeals({category}) {
                 data?.meals.map(meals => {
                     return(
                         <MealCard 
-                            key={meals?.idMeals}
+                            key={meals?.idMeal}
+                            id={meals?.idMeal}
                             img={meals?.strMealThumb}
                             title={meals?.strMeal}
                         />

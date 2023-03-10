@@ -12,7 +12,7 @@ function SearchBox() {
     function handleSubmit(e){
         e.preventDefault()
         if(search !== '') {
-            navigate(`/search?search=${search}`)
+            navigate(`/search?q=${search}`)
         }
     }
 
