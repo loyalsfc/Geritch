@@ -15,16 +15,17 @@ function Search() {
 
     return (
         <main>
-            <div className="container mx-auto">
+            <div className="container mx-auto pb-16">
                 <SearchBox />
                 {isLoading ? (
                     <h3 className='mt-16'>"Loading...."</h3>
                     ) : (
-                    <div className='grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 px-4 gap-4 mt-16'>
+                    <div className='grid grid-cols-3 md:grid-cols-4 lg:grid-cols-4 px-4 gap-8 mt-16'>
                         {data.meals ? (data.meals?.map(meal => {
                             return(
                                 <MealCard 
                                     key={meal?.idMeal}
+                                    id={meal?.idMeal}
                                     img={meal?.strMealThumb}
                                     title={meal?.strMeal}
                                 />

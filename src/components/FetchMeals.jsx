@@ -8,12 +8,11 @@ function FetchMeals({category}) {
         fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`)
         .then(res => res.json())
     )
-    console.log(data)
 
     if(isLoading) return 'Loading...'
 
     return (
-        <div className='grid grid-cols-5 px-4 gap-4'>
+        <div className='grid grid-cols-4 px-4 gap-8'>
             {
                 data?.meals.map(meals => {
                     return(

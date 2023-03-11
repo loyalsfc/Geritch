@@ -2,17 +2,22 @@ import React, { useState } from 'react'
 import { useQuery } from 'react-query'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { addSaves } from '../app/savesSlice'
+import { addSaves, removeSaves } from '../app/savesSlice'
 
 function MealPage() {
     const dispatch = useDispatch()
+    const {saves} = useSelector(state => state.saves)
     const {mealId} = useParams()
     const {isLoading, error, data} = useQuery(['getmeal', mealId], () => 
         fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`)
         .then(res => res.json())
     )
     const ingredientList = [1,2,3,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
-    
+
+    if(isLoading){
+        return <p>Loading...</p>
+    }
+
     return (
         <main className='mt-8'>
             <div className="container mx-auto">
@@ -33,7 +38,22 @@ function MealPage() {
                                         })
                                     }
                                 </div>
-                                <button onClick={()=>dispatch(addSaves(data?.meals?.[0]))} className='w-full bg-primary mt-auto text-black font-comorant font-bold text-xl py-2 border-2 border-primary hover:bg-transparent hover:text-primary transition-all'>Save Meal</button>
+                                {saves.some(item => item.idMeal == mealId) ?(
+                                        <button 
+                                            onClick={()=>dispatch(removeSaves(mealId))} 
+                                            className='meal-page-btn'
+                                        >
+                                            Remove Meal
+                                        </button>
+                                    ):(
+                                        <button 
+                                            onClick={()=>dispatch(addSaves(data?.meals?.[0]))} 
+                                            className='meal-page-btn'
+                                        >
+                                            Save Meal
+                                        </button>
+                                    )
+                                }
                             </div>
                         </div>
                     </article>

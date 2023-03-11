@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
     function MealCard({img, title, id}) {
-        console.log(id)
     return (
         <Link to={`/meal/${id}`}>
             <div className='border border-primary p-2 text-center hover:shadow-md shadow-white'>
