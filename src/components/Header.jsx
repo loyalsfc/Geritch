@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 function Header() {
     return (
-        <div className="container mx-auto">
+        <div className="container mx-auto mb-8">
             <header className='text-white py-4'>
                 <div className='container mx-auto grid grid-cols-3 items-center place-item-center'>
                     <Link to="/"><h2 className='font-bold font-comorant text-[44px] tracking-[0.04em] '>GERICHT</h2></Link>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useQuery } from 'react-query'
 import { useSearchParams } from 'react-router-dom'
+import Loader from '../components/Loader';
 import MealCard from '../components/MealCard'
 import SearchBox from '../components/SearchBox';
 
@@ -18,7 +19,7 @@ function Search() {
             <div className="container mx-auto pb-16">
                 <SearchBox />
                 {isLoading ? (
-                    <h3 className='mt-16'>"Loading...."</h3>
+                    <Loader />
                     ) : (
                     <div className='grid grid-cols-3 md:grid-cols-4 lg:grid-cols-4 px-4 gap-8 mt-16'>
                         {data.meals ? (data.meals?.map(meal => {
@@ -31,7 +32,10 @@ function Search() {
                                 />
                             )
                         })):(
-                            <h2>No Item Found</h2>
+                            <h2 className=''>There are no results for “elefiemele eba”.
+                            - Check your spelling for typing errors
+                            - Try searching with short and simple keywords
+                            - Try searching more general terms - you can then filter the search results</h2>
                         )}
                     </div>
                 )}

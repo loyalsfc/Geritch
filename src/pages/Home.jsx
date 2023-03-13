@@ -27,7 +27,7 @@ import findUs from '../assets/find-us.png'
 function Home() {
     return (
         <>
-            <section className='py-8 mb-24'>
+            <section className='pb-8 mb-24'>
                 <div className="container mx-auto flex items-center px-28 gap-14 relative">
                     <article className=' w-1/2 flex flex-col gap-2 shrink-0 pr-6'>
                         <h3 className='font-comorant font-bold text-2xl tracking-[0.04em] text-white'>Chase the new Flavour</h3>

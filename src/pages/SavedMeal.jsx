@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 function SavedMeal() {
     const dispatch = useDispatch()
     const {saves} = useSelector(state => state.saves)
-    console.log(saves)
+    
     return (
         <main className='mt-8'>
             <div className="container mx-auto">

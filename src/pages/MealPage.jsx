@@ -3,6 +3,7 @@ import { useQuery } from 'react-query'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { addSaves, removeSaves } from '../app/savesSlice'
+import Loader from '../components/Loader'
 
 function MealPage() {
     const dispatch = useDispatch()
@@ -15,7 +16,7 @@ function MealPage() {
     const ingredientList = [1,2,3,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
 
     if(isLoading){
-        return <p>Loading...</p>
+        return <Loader />
     }
 
     return (

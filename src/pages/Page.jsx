@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useQuery } from 'react-query'
 import FetchMeals from '../components/FetchMeals'
+import Loader from '../components/Loader'
 import SearchBox from '../components/SearchBox'
 
 
@@ -16,9 +17,13 @@ function Page() {
         setCurrentCategory(data?.categories[0].strCategory)
     }, [data])
 
+    if(isLoading){
+        return <Loader />
+    }
+
     return (
         <main>
-            <div className='container mx-auto py-8'>
+            <div className='container mx-auto pb-8'>
                 <div>
                     <SearchBox />
                     <p className='text-center mt-2'>Search Meals or Select Categories From Below</p>

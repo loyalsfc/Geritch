@@ -1,5 +1,6 @@
 import React from 'react'
 import { useQuery } from 'react-query'
+import Loader from './Loader'
 import MealCard from './MealCard'
 
 function FetchMeals({category}) {
@@ -9,7 +10,7 @@ function FetchMeals({category}) {
         .then(res => res.json())
     )
 
-    if(isLoading) return 'Loading...'
+    if(isLoading) return <Loader />
 
     return (
         <div className='grid grid-cols-4 px-4 gap-8'>
