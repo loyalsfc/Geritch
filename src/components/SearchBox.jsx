@@ -5,7 +5,7 @@ import { useSearchParams } from 'react-router-dom'
 function SearchBox() {
     const [searchParams] = useSearchParams()
     const param = searchParams.get('q')
-    const [search, setSearch] = useState(param)
+    const [search, setSearch] = useState(param ? param : "")
     const navigate = useNavigate()
 
     const handleChange = (e) => {

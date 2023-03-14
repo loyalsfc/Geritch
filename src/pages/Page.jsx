@@ -3,10 +3,11 @@ import { useQuery } from 'react-query'
 import FetchMeals from '../components/FetchMeals'
 import Loader from '../components/Loader'
 import SearchBox from '../components/SearchBox'
-
+import { supabase } from '../supabaseClient'
 
 
 function Page() {
+    
     const {isLoading, error, data} = useQuery('cats', () => 
         fetch('https://www.themealdb.com/api/json/v1/1/categories.php')
         .then(res => res.json())
@@ -16,6 +17,16 @@ function Page() {
     useEffect(()=>{
         setCurrentCategory(data?.categories[0].strCategory)
     }, [data])
+
+    useEffect(()=>{
+        async function getUser(){
+            const { data, error } = await supabase.auth.getSession()
+            // const { data: { user } } = await supabase.auth.getUser()
+            console.log(data)
+        }
+
+        getUser()
+    },[])
 
     if(isLoading){
         return <Loader />

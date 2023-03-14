@@ -10,6 +10,7 @@ import MealPage from './pages/MealPage'
 import SavedMeal from './pages/SavedMeal'
 import { Provider } from 'react-redux'
 import { store } from './app/store'
+import Login from './pages/Login'
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
         element: <SavedMeal />
       }
     ]
+  },
+  {
+    path: '/login',
+    element: <Login />
   }
 ])
 
