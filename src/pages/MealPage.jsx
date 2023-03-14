@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useQuery } from 'react-query'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { addSaves, removeSaves } from '../app/savesSlice'
 import Loader from '../components/Loader'
+import Toast from '../components/Toast'
+import RemoveSave from '../components/RemoveSave'
 
 function MealPage() {
     const dispatch = useDispatch()
@@ -14,13 +16,28 @@ function MealPage() {
         .then(res => res.json())
     )
     const ingredientList = [1,2,3,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+    const [displayToast, setDisplayToast] = useState(false)
 
+    useEffect(()=>{
+        const intevalId = setInterval(() => {
+            setDisplayToast(false)
+        }, 10000); 
+
+        ()=> clearInterval(intevalId)
+    }, [displayToast])
+
+    const handleSaveMeal = () => {
+        dispatch(addSaves(data?.meals?.[0]))
+        setDisplayToast(true)
+    }
+    
     if(isLoading){
         return <Loader />
     }
 
     return (
-        <main className='mt-8'>
+        <main className='pb-16 relative'>
+            {displayToast && <Toast text="Meal Saved Successfully" handleClick={()=>setDisplayToast(false)}/>}
             <div className="container mx-auto">
                 <div className="max-w-4xl mx-auto">
                     <article className='mb-16'>
@@ -48,7 +65,7 @@ function MealPage() {
                                         </button>
                                     ):(
                                         <button 
-                                            onClick={()=>dispatch(addSaves(data?.meals?.[0]))} 
+                                            onClick={handleSaveMeal} 
                                             className='meal-page-btn'
                                         >
                                             Save Meal
