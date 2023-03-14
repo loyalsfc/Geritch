@@ -4,8 +4,15 @@ const initialState = {
     user: null
 }
 
-const { data: { user } } = await supabase.auth.getUser()
-console.log(user)
+async function getuser(){
+    await supabase.auth.getUser().then((value) => {
+        console.log(value)
+    })
+}
+
+getuser()
+// const { data: { user } } = await supabase.auth.getUser()
+// console.log(user)
 
 const userSlice = createSlice({
     name: 'user',

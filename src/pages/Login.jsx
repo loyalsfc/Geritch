@@ -15,7 +15,7 @@ function Login() {
     //     console.log(error)
     // }
     
-    supabase.auth.onAuthStateChange((event, session) => {
+    supabase.auth.onAuthStateChange(async (event, session) => {
         console.log(event, session)
     })
   

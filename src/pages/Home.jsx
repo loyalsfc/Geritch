@@ -21,10 +21,11 @@ import insta3 from '../assets/insta/insta-3.png'
 import insta2 from '../assets/insta/insta-2.png'
 import GalleryImage from '../components/GalleryImage';
 import findUs from '../assets/find-us.png'
+import { supabase } from '../supabaseClient';
 
 
+function Home() {  
 
-function Home() {
     return (
         <>
             <section className='pb-8 mb-24'>
@@ -42,7 +43,7 @@ function Home() {
                             <path d="M0.499878 61L0.499884 0" stroke="url(#paint0_linear_0_54)"/>
                             <defs>
                                 <linearGradient id="paint0_linear_0_54" x1="29.0041" y1="-11.8571" x2="29.0041" y2="78.2931" gradientUnits="userSpaceOnUse">
-                                    <stop Color="#DCCA87"/>
+                                    <stop color="#DCCA87"/>
                                     <stop offset="0.430036" stopColor="#DCCA87"/>
                                     <stop offset="0.927083" stopColor="#DCCA87" stopOpacity="0.24"/>
                                 </linearGradient>
@@ -75,7 +76,7 @@ function Home() {
                         <article className='flex flex-col items-start max-w-lg gap-4 z-10'>
                             <h3 className='text-primary font-comorant tracking-[0.03em] text-6xl '>Our History</h3>
                             <svg width="40" height="9" viewBox="0 0 40 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g clip-path="url(#clip0_0_257)">
+                                <g clipPath="url(#clip0_0_257)">
                                     <path d="M33.5016 9C37.0849 9 40 6.98129 40 4.49995C40 2.01861 37.0849 0 33.5016 0C30.1122 0 27.3221 1.80637 27.03 4.1018H22.3529V3.1552L0 3.1552V5.84446L22.353 5.84446V4.89798H27.0301C27.3223 7.19352 30.1122 9 33.5016 9ZM21.4898 5.04839L0.863293 5.04839V3.95161L21.4898 3.95161V5.04839ZM27.8662 4.49995C27.8662 2.45778 30.3944 0.796403 33.5017 0.796403C36.6091 0.796403 39.1372 2.45778 39.1372 4.49995C39.1372 6.54222 36.6091 8.2037 33.5017 8.2037C30.3944 8.2037 27.8662 6.54222 27.8662 4.49995Z" fill="#DCCA87"/>
                                 </g>
                                 <defs>
