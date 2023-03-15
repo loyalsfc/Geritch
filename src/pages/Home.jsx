@@ -28,17 +28,17 @@ function Home() {
 
     return (
         <>
-            <section className='pb-8 mb-24'>
-                <div className="container mx-auto flex items-center px-28 gap-14 relative">
-                    <article className=' w-1/2 flex flex-col gap-2 shrink-0 pr-6'>
+            <section className='pb-8 md:mb-24'>
+                <div className="container mx-auto px-4 flex flex-col-reverse md:flex-row items-center lg:px-28 gap-8 lg:gap-14 relative">
+                    <article className='md:w-1/2 mt-6 flex flex-col gap-2 shrink-0 lg:pr-6'>
                         <h3 className='font-comorant font-bold text-2xl tracking-[0.04em] text-white'>Chase the new Flavour</h3>
                         <Icon />
-                        <h1 className='font-comorant font-bold leading-[120%] text-[90px] text-primary tracking-[0.04em]'>The key to Fine dining</h1>
+                        <h1 className='font-comorant font-bold leading-[120%] text-5xl md:text-7xl lg:text-[90px] text-primary tracking-[0.04em]'>The key to Fine dining</h1>
                         <p className='leading-[175%] tracking-[0.04em] mb-2'>Sit tellus lobortis sed senectus vivamus molestie. Condimentum volutpat morbi facilisis quam scelerisque sapien. Et, penatibus aliquam amet tellus </p>
                         <button className='btn-pry'>Explore Menu</button>
                     </article>
                     <ImageFrame image={hero} />
-                    <div className='flex flex-col items-center absolute bottom-0 right-0'>
+                    <div className='flex flex-col items-center absolute bottom-0 right-2 md:right-0'>
                         <svg width="1" height="61" viewBox="0 0 1 61" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M0.499878 61L0.499884 0" stroke="url(#paint0_linear_0_54)"/>
                             <defs>
@@ -54,10 +54,10 @@ function Home() {
                 </div>
             </section>
             <main>
-                <section className='bg-about'>
-                    <div className="py-32 flex justify-center items-center gap-12 relative">
+                <section className='bg-about bg-cover bg-no-repeat'>
+                    <div className="py-32 flex flex-col md:flex-row justify-center items-center md:gap-12 relative">
                         <p className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[391px] font-comorant font-bold text-[#272727]'>G</p>
-                        <article className='flex flex-col items-end max-w-lg gap-4 z-10'>
+                        <article className='flex flex-col items-center md:items-end max-w-lg gap-4 z-10'>
                             <h3 className='text-primary font-comorant tracking-[0.03em] text-6xl '>About Us</h3>
                             <svg width="40" height="9" viewBox="0 0 40 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clipPath="url(#clip0_0_248)">
@@ -72,8 +72,8 @@ function Home() {
                             <p className='leading-9 tracking-[0.04em] text-right'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis pharetra adipiscing ultrices vulputate posuere tristique. In sed odio nec aliquet eu proin mauris et.</p>
                             <button className='btn-pry'>Know More</button>
                         </article>
-                        <img src={knife} alt="" className='h-[400px] z-10' />
-                        <article className='flex flex-col items-start max-w-lg gap-4 z-10'>
+                        <img src={knife} alt="" className='h-40 md:h-[400px] z-10 rotate-90 md:rotate-0 transition-all' />
+                        <article className='flex flex-col items-center md:items-start max-w-lg gap-4 z-10'>
                             <h3 className='text-primary font-comorant tracking-[0.03em] text-6xl '>Our History</h3>
                             <svg width="40" height="9" viewBox="0 0 40 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clipPath="url(#clip0_0_257)">
