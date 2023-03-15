@@ -6,10 +6,14 @@ import { addSaves, removeSaves } from '../app/savesSlice'
 import Loader from '../components/Loader'
 import Toast from '../components/Toast'
 import RemoveSave from '../components/RemoveSave'
-
+import { supabase } from '../supabaseClient'
+// const { data: result, error: fetchError } = await supabase
+//   .from('todos')
+//   .select("*")
 function MealPage() {
     const dispatch = useDispatch()
     const {saves} = useSelector(state => state.saves)
+    const {user} = useSelector(state => state.user)
     const {mealId} = useParams()
     const {isLoading, error, data} = useQuery(['getmeal', mealId], () => 
         fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`)
@@ -17,6 +21,7 @@ function MealPage() {
     )
     const ingredientList = [1,2,3,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
     const [displayToast, setDisplayToast] = useState(false)
+    const [toastText, setToastText] = useState("Meal Saved Successfully")
 
     useEffect(()=>{
         const intevalId = setInterval(() => {
@@ -24,11 +29,22 @@ function MealPage() {
         }, 10000); 
 
         ()=> clearInterval(intevalId)
+
+        
     }, [displayToast])
 
-    const handleSaveMeal = () => {
-        dispatch(addSaves(data?.meals?.[0]))
-        setDisplayToast(true)
+    const handleSaveMeal = async () => {
+        if(user){
+            setToastText("Meal Saved Successfully")
+            const {data: savedMeal} = await supabase.from('saves')
+                .insert({user_id: user?.id, item: data?.meals?.[0]})
+                .select()
+            dispatch(addSaves(savedMeal[0]))
+            setDisplayToast(true)
+        } else {
+            setToastText('You are not sign in')
+            setDisplayToast(true)
+        }
     }
     
     if(isLoading){
@@ -37,7 +53,7 @@ function MealPage() {
 
     return (
         <main className='pb-16 relative'>
-            {displayToast && <Toast text="Meal Saved Successfully" handleClick={()=>setDisplayToast(false)}/>}
+            {displayToast && <Toast text={toastText} handleClick={()=>setDisplayToast(false)}/>}
             <div className="container mx-auto">
                 <div className="max-w-4xl mx-auto">
                     <article className='mb-16'>

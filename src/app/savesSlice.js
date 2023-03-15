@@ -1,7 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { supabase } from "../supabaseClient";
+import {user} from './userSlice'
+
+const { data, error } = await supabase
+  .from('saves')
+  .select()
+  .eq('user_id', user?.id)
+
 
 const initialState = {
-    saves: localStorage.savedMeals ? JSON.parse(localStorage.savedMeals) : []
+    saves: data
 }
 
 const savesSlice = createSlice({
@@ -13,7 +21,7 @@ const savesSlice = createSlice({
             localStorage.savedMeals = JSON.stringify(state.saves)
         },
         removeSaves: (state, action) => {
-            state.saves = state.saves.filter(item => item.idMeal != action.payload)
+            state.saves = state.saves.filter(item => item.id != action.payload)
             localStorage.savedMeals = JSON.stringify(state.saves)
         }
     }

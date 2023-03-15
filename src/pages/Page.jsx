@@ -22,7 +22,7 @@ function Page() {
         async function getUser(){
             const { data, error } = await supabase.auth.getSession()
             // const { data: { user } } = await supabase.auth.getUser()
-            console.log(error)
+            console.log(data)
         }
 
         getUser()

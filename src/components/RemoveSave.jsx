@@ -1,12 +1,18 @@
 import React, { useState } from 'react'
 import removeIcon from '../assets/confirm.png'
 import { useDispatch } from 'react-redux'
+import { supabase } from '../supabaseClient'
 import { removeSaves } from '../app/savesSlice'
 
 function RemoveSave({id, dismiss}) {
     const dispatch = useDispatch()
 
-    const handleClick = () => {
+    const handleClick = async() => {        
+        const suppa = await supabase
+            .from('saves')
+            .delete()
+            .eq('id', id)
+        console.log(suppa)
         dispatch(removeSaves(id))
         dismiss(false)
     }
