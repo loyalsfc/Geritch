@@ -13,7 +13,7 @@ function FetchMeals({category}) {
     if(isLoading) return <Loader />
 
     return (
-        <div className='grid grid-cols-4 px-4 gap-8'>
+        <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 px-4 gap-4 sm:gap-8'>
             {
                 data?.meals.map(meals => {
                     return(

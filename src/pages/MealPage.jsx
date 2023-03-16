@@ -52,15 +52,15 @@ function MealPage() {
     }
 
     return (
-        <main className='pb-16 relative'>
+        <main className='pb-16 relative px-4'>
             {displayToast && <Toast text={toastText} handleClick={()=>setDisplayToast(false)}/>}
             <div className="container mx-auto">
                 <div className="max-w-4xl mx-auto">
                     <article className='mb-16'>
                         <h3 className='meal-title'>MEAL DETAILS</h3>
-                        <div className="flex gap-8">
-                            <div className="w-1/3 shrink-0">
-                                <img src={data?.meals?.[0].strMealThumb} alt="" />
+                        <div className="flex flex-col md:flex-row gap-8">
+                            <div className="lg:w-1/3 shrink-0">
+                                <img src={data?.meals?.[0].strMealThumb} height="500" width="500" className='w-full h-80 object-cover' loading='lazy' alt={data?.meals?.[0].strMeal} />
                             </div>
                             <div className='flex flex-col gap-4'>
                                 <h2 className='text-4xl mb-2 text-primary font-bold font-comorant'>{data?.meals?.[0].strMeal}</h2>

@@ -9,7 +9,7 @@ function Header() {
         <div className="container mx-auto mb-8">
             <header className='text-white py-4'>
                 <div className='container px-4 md:px-0 mx-auto flex justify-between lg:grid grid-cols-3 items-center place-item-center'>
-                    <Link to="/"><h2 className='font-bold font-comorant text-[44px] tracking-[0.04em] '>GERICHT</h2></Link>
+                    <Link to="/"><h2 className='font-bold font-comorant text-3xl sm:text-[44px] tracking-[0.04em] '>GERICHT</h2></Link>
                     <nav className='hidden lg:block'>
                         <ul className='tracking-[0.04em] flex gap-8 text-center'>
                             <li className='cursor-pointer'><Link to='/'>Home</Link></li>
@@ -38,7 +38,7 @@ function Header() {
                         </li>
                         <li>Book Table</li>
                     </ul>
-                    <svg className='lg:hidden' viewBox="0 0 100 80" width="40" height="40">
+                    <svg className='lg:hidden' viewBox="0 0 100 80" width="30" height="30">
                         <rect className="fill-white stroke-white"width="100" height="10" rx="10"></rect>
                         <rect className="fill-white stroke-white"y="30" width="100" height="10" rx="10"></rect>
                         <rect className="fill-white stroke-white"y="60" width="100" height="10" rx="10"></rect>

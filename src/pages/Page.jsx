@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useQuery } from 'react-query'
 import FetchMeals from '../components/FetchMeals'
+import Footer from '../components/Footer'
 import Loader from '../components/Loader'
 import SearchBox from '../components/SearchBox'
 import { supabase } from '../supabaseClient'
@@ -34,18 +35,18 @@ function Page() {
 
     return (
         <main>
-            <div className='container mx-auto pb-8'>
+            <div className='container mx-auto pb-8 px-4'>
                 <div>
                     <SearchBox />
                     <p className='text-center mt-2'>Search Meals or Select Categories From Below</p>
                 </div>
-                <div className='grid grid-cols-6 gap-4 p-8'>
+                <div className='flex items-center justify-center flex-wrap gap-4 py-8 sm:px-8'>
                     {
                         data?.categories.map(category => {
                             return(
                                 <button 
                                     key={category?.idCategory} 
-                                    className={`py-2 px-4 font-bold ${currentCategory === category?.strCategory ? "bg-[#d8b63a]" : "bg-primary"} text-black hover:opacity-80`}
+                                    className={`py-2 font-bold w-32 ${currentCategory === category?.strCategory ? "bg-[#d8b63a]" : "bg-primary"} text-black hover:opacity-80`}
                                     onClick={()=>setCurrentCategory(category?.strCategory)}
                                 >
                                     {category?.strCategory}
@@ -54,9 +55,10 @@ function Page() {
                         })
                     }
                 </div>
-                <div>
+                <div className='mb-16'>
                     {currentCategory && <FetchMeals category={currentCategory}/>}
                 </div>
+                <Footer />
             </div>
         </main>
     )
