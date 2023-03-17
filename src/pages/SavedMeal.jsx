@@ -21,7 +21,7 @@ function SavedMeal() {
             {showRemoveModal && <RemoveSave id={deleteId} dismiss={setShowRemoveModal} />}
             {displayToast && <Toast text="Meal Removed Successfully" handleClick={()=>setDisplayToast(false)}/>}
             <div className="container mx-auto">
-                <div className="max-w-4xl mx-auto">
+                <div className="max-w-4xl mx-auto px-4">
                     <h3 className="meal-title">SAVED MEALS</h3>
                     {saves.length ? (
                         <ul>
@@ -34,7 +34,7 @@ function SavedMeal() {
                                                         <img src={save?.item?.strMealThumb} alt={save?.item?.strMeal} className="w-32"/>
                                                     </Link>
                                                 </div>
-                                                <article className='flex-1 flex flex-col'>
+                                                <article className='flex flex-col w-full '>
                                                     <h3 className='overflow-hidden whitespace-nowrap text-ellipsis text-primary font-comorant font-bold text-3xl max-w-lg w-full'>{save?.item?.strMeal}</h3>
                                                     <p>Category: {save?.item?.strCategory}</p>
                                                     <button onClick={()=>handleClick(save?.id)} className='bg-primary font-bold text-black py-1.5 px-4 w-fit mt-auto' >REMOVE</button>

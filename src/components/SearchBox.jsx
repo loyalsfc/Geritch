@@ -20,8 +20,8 @@ function SearchBox() {
     }
 
     return (
-        <form className='flex items-stretch max-w-lg mx-auto' onSubmit={handleSubmit}>
-            <input type="search" onChange={handleChange} value={search} className='focus:outline-0 flex-1 px-4 py-4'/>
+        <form className='flex items-stretch max-w-lg mx-auto ' onSubmit={handleSubmit}>
+            <input type="search" onChange={handleChange} value={search} className='focus:outline-0 sm:flex-1 px-4 w-full py-4'/>
             <button className="btn-pry">Search</button>
         </form>
     )

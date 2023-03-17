@@ -7,9 +7,7 @@ import Loader from '../components/Loader'
 import Toast from '../components/Toast'
 import RemoveSave from '../components/RemoveSave'
 import { supabase } from '../supabaseClient'
-// const { data: result, error: fetchError } = await supabase
-//   .from('todos')
-//   .select("*")
+import Footer from '../components/Footer'
 function MealPage() {
     const dispatch = useDispatch()
     const {saves} = useSelector(state => state.saves)
@@ -110,7 +108,7 @@ function MealPage() {
                             </tbody>
                         </table>
                     </article>
-                    <article>
+                    <article className='mb-16'>
                         <h3 className="meal-title">INSTRUCTIONS</h3>
                         <ol className='leading-8'>
                             {
@@ -120,6 +118,7 @@ function MealPage() {
                             }
                         </ol>
                     </article>
+                    <Footer />
                 </div>
             </div>
         </main>
