@@ -36,13 +36,13 @@ const router = createBrowserRouter([
       {
         path: "/saves",
         element: <SavedMeal />
+      },
+      {
+        path: '/login',
+        element: <Login />
       }
     ]
   },
-  {
-    path: '/login',
-    element: <Login />
-  }
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(

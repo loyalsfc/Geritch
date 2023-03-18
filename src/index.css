@@ -32,6 +32,9 @@
   .meal-page-btn{
     @apply w-full bg-primary mt-auto text-black font-comorant font-bold text-xl py-2 border-2 border-primary hover:bg-transparent hover:text-primary transition-all
   }
+  .active{
+    @apply text-primary font-semibold
+  }
 }
 
 *::-webkit-scrollbar{
