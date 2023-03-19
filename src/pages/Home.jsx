@@ -26,7 +26,9 @@ import Footer from '../components/Footer';
 
 
 function Home() {  
-
+    const scrollTop = () => {
+        window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+    }
     return (
         <>
             <section className='pb-8 md:mb-24'>
@@ -39,7 +41,11 @@ function Home() {
                         <button className='btn-pry'>Explore Menu</button>
                     </article>
                     <ImageFrame image={hero} />
-                    <div className='flex flex-col items-center absolute bottom-0 right-2 md:right-0'>
+                    <div onClick={()=>
+                            window.scrollTo({top: window.innerHeight, left: 0, behavior: 'smooth'})
+                        } 
+                        className='flex flex-col cursor-pointer items-center absolute bottom-0 right-2 md:right-0'
+                    >
                         <svg width="1" height="61" viewBox="0 0 1 61" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M0.499878 61L0.499884 0" stroke="url(#paint0_linear_0_54)"/>
                             <defs>
@@ -224,7 +230,7 @@ function Home() {
                         </div>
                     </div>
                     <Footer />
-                    <div className="flex flex-col items-center w-fit bottom-0 cursor-pointer lg:bottom-1/2 absolute right-4 lg:right-10">
+                    <div onClick={scrollTop} className="flex flex-col items-center w-fit bottom-0 cursor-pointer lg:bottom-1/2 absolute right-4 lg:right-10">
                         <svg width="2" height="61" viewBox="0 0 2 61" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1 61L1.00001 9.53674e-07" stroke="url(#paint0_linear_0_353)"/>
                             <defs>
