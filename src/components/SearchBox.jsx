@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSearchParams } from 'react-router-dom'
+import {motion} from 'framer-motion'
 
 function SearchBox() {
     const [searchParams] = useSearchParams()
@@ -22,7 +23,7 @@ function SearchBox() {
     return (
         <form className='flex items-stretch max-w-lg mx-auto ' onSubmit={handleSubmit}>
             <input type="search" onChange={handleChange} value={search} className='focus:outline-0 sm:flex-1 px-4 w-full py-4'/>
-            <button className="btn-pry">Search</button>
+            <motion.button whileTap={{scale: 0.5}} className="btn-pry">Search</motion.button>
         </form>
     )
 }

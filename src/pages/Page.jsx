@@ -4,6 +4,7 @@ import FetchMeals from '../components/FetchMeals'
 import Footer from '../components/Footer'
 import Loader from '../components/Loader'
 import SearchBox from '../components/SearchBox'
+import { motion } from 'framer-motion'
 
 function Page() {
     
@@ -32,13 +33,14 @@ function Page() {
                     {
                         data?.categories.map(category => {
                             return(
-                                <button 
+                                <motion.button
+                                    whileTap={{scale: 0.5}}
                                     key={category?.idCategory} 
                                     className={`py-2 font-bold w-32 ${currentCategory === category?.strCategory ? "bg-[#d8b63a]" : "bg-primary"} text-black hover:opacity-80`}
                                     onClick={()=>setCurrentCategory(category?.strCategory)}
                                 >
                                     {category?.strCategory}
-                                </button>
+                                </motion.button>
                             )
                         })
                     }

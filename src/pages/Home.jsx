@@ -21,8 +21,8 @@ import insta3 from '../assets/insta/insta-3.png'
 import insta2 from '../assets/insta/insta-2.png'
 import GalleryImage from '../components/GalleryImage';
 import findUs from '../assets/find-us.png'
-import { supabase } from '../supabaseClient';
 import Footer from '../components/Footer';
+import { motion } from "framer-motion"
 
 
 function Home() {  
@@ -33,13 +33,18 @@ function Home() {
         <>
             <section className='pb-8 md:mb-24'>
                 <div className="container mx-auto px-4 flex flex-col-reverse md:flex-row items-center lg:px-28 gap-8 lg:gap-14 relative">
-                    <article className='md:w-1/2 mt-6 flex flex-col gap-2 shrink-0 lg:pr-6'>
+                    <motion.article
+                        initial={{ opacity: 0, scale: 0.5}} 
+                        whileInView={{opacity: 1, scale: 1}}
+                        transition={{duration: 0.5}}
+                        className='md:w-1/2 mt-6 flex flex-col gap-2 shrink-0 lg:pr-6'
+                    >
                         <h3 className='font-comorant font-bold text-2xl tracking-[0.04em] text-white'>Chase the new Flavour</h3>
                         <Icon />
                         <h1 className='font-comorant font-bold leading-[120%] text-5xl md:text-7xl lg:text-[90px] text-primary tracking-[0.04em]'>The key to Fine dining</h1>
                         <p className='leading-[175%] tracking-[0.04em] mb-2'>Sit tellus lobortis sed senectus vivamus molestie. Condimentum volutpat morbi facilisis quam scelerisque sapien. Et, penatibus aliquam amet tellus </p>
                         <button className='btn-pry'>Explore Menu</button>
-                    </article>
+                    </motion.article>
                     <ImageFrame image={hero} />
                     <div onClick={()=>
                             window.scrollTo({top: window.innerHeight, left: 0, behavior: 'smooth'})
@@ -65,7 +70,13 @@ function Home() {
                     <div className="container mx-auto px-4">
                         <div className="py-16 md:py-32 flex flex-col md:flex-row justify-center items-center md:gap-12 relative">
                             <p className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[391px] font-comorant font-bold text-[#272727]'>G</p>
-                            <article className='flex flex-col items-center md:items-end max-w-lg gap-4 z-10'>
+                            <motion.article 
+                                className='flex flex-col items-center md:items-end max-w-lg gap-4 z-10'
+                                initial={{transform: "rotate(90deg)"}}
+                                whileInView={{transform: "rotate(0)"}}
+                                transition={{duration: 0.7}}
+                                viewport={{ once: true }}
+                            >
                                 <h3 className='text-primary font-comorant tracking-[0.03em] text-6xl '>About Us</h3>
                                 <svg width="40" height="9" viewBox="0 0 40 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g clipPath="url(#clip0_0_248)">
@@ -79,9 +90,22 @@ function Home() {
                                 </svg>
                                 <p className='leading-9 tracking-[0.04em] text-center md:text-right'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis pharetra adipiscing ultrices vulputate posuere tristique. In sed odio nec aliquet eu proin mauris et.</p>
                                 <button className='btn-pry'>Know More</button>
-                            </article>
-                            <img src={knife} alt="" className='h-40 md:h-[400px] z-10 rotate-90 md:rotate-0 transition-all' />
-                            <article className='flex flex-col items-center md:items-start max-w-lg gap-4 z-10'>
+                            </motion.article>
+                            <motion.img
+                                initial={{opacity: 0}}
+                                whileInView={{opacity: 1}}
+                                transition={{duration: 1}}
+                                src={knife} 
+                                alt="Image of knife" 
+                                className='h-40 md:h-[400px] z-10 rotate-90 md:rotate-0 transition-all' 
+                            />
+                            <motion.article 
+                                className='flex flex-col items-center md:items-start max-w-lg gap-4 z-10'
+                                initial={{transform: "rotate(-90deg)"}}
+                                whileInView={{transform: "rotate(0)"}}
+                                transition={{duration: 0.7}}
+                                viewport={{ once: true }}
+                            >
                                 <h3 className='text-primary font-comorant tracking-[0.03em] text-6xl '>Our History</h3>
                                 <svg width="40" height="9" viewBox="0 0 40 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g clipPath="url(#clip0_0_257)">
@@ -95,17 +119,22 @@ function Home() {
                                 </svg>
                                 <p className='leading-9 text-center md:text-left tracking-[0.04em]'>Adipiscing tempus ullamcorper lobortis odio tellus arcu volutpat. Risus placerat morbi volutpat habitasse interdum mi aliquam In sed odio nec aliquet.</p>
                                 <button className='btn-pry'>Know More</button>
-                            </article>
+                            </motion.article>
                         </div>
                     </div>
                 </section>
                 <section>
                     <div className="container mx-auto py-28 px-0 md:px-0">
-                        <article className='flex flex-col gap-2 items-center mb-8 md:mb-16 font-comorant'>
+                        <motion.article
+                            initial={{scale: 2}} 
+                            whileInView={{scale: 1}}
+                            transition={{duration: 0.5}}
+                            className='flex flex-col gap-2 items-center mb-8 md:mb-16 font-comorant'
+                        >
                             <h3 className='text-2xl font-bold leading-[130%] tracking-[0.04em] text-white '>Menu that Fits You Palatte</h3>
                             <Icon />
                             <p className='text-primary text-center tracking-[0.04em] text-4xl md:text-6xl font-semibold'>Today's Special</p>
-                        </article>
+                        </motion.article>
                         <div className='flex flex-col sm:flex-row items-center mb-16 gap-8 sm:gap-0'>
                             <div className='shrink-0 grow-0 w-full sm:w-1/2 md:w-1/3'>
                                 <TodaySpecial title="Wine & Bear">
@@ -116,9 +145,14 @@ function Home() {
                                     <MenuItem name="Irish Guinness" price="26" note="IE | 750 ml" />
                                 </TodaySpecial>
                             </div>
-                            <div className="hidden md:block">
+                            <motion.div
+                                initial={{borderRadius: '20%'}}
+                                whileInView={{borderRadius: "0"}}
+                                transition={{duration: 0.7}}
+                                className="hidden md:block"
+                            >
                                 <img src={cocktail} alt="" />
-                            </div>
+                            </motion.div>
                             <div className='shrink-0 grow-0 w-full sm:w-1/2 md:w-1/3'>
                                 <TodaySpecial title="Cocktails">
                                     <MenuItem name="Aperol Spritz" price="20" note="Aperol | Villa Marchesi prosecco | soda | 30ml" />
@@ -137,16 +171,26 @@ function Home() {
                         <div className="flex flex-col md:flex-row-reverse items-center lg:px-28 gap-14">
                             <div className='md:w-1/2 flex flex-col gap-10'>
                                 <HeadTitle title="Chef's Word" subtitle="What We Believe In"/>
-                                <p className='leading-[170%]'>
+                                <motion.p
+                                    initial={{opacity: 0}}
+                                    whileInView={{opacity: 1}}
+                                    variants={{once: true}} 
+                                    transition={{duration: 0.70}}
+                                    className='leading-[170%]'
+                                >
                                     <svg className='inline' width="47" height="41" viewBox="0 0 47 41" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M12.9137 23.3571C15.3163 23.3571 17.2183 24.1592 18.6198 25.7632C20.1214 27.2669 20.8722 29.2719 20.8722 31.7782C20.8722 34.485 19.9712 36.6404 18.1693 38.2444C16.4675 39.7481 14.115 40.5 11.1118 40.5C7.60809 40.5 4.85517 39.1466 2.85304 36.4399C0.951012 33.7331 0 29.8734 0 24.8609C0 20.3496 1.00107 16.1892 3.00319 12.3797C5.00533 8.46992 8.00852 4.56015 12.0128 0.650374C12.1129 0.550125 12.263 0.5 12.4633 0.5C12.7636 0.5 13.0138 0.650374 13.2141 0.951122C13.4143 1.25188 13.4143 1.5025 13.2141 1.703C8.30884 6.71553 5.85623 12.6303 5.85623 19.4474C5.85623 22.2544 6.35676 24.3095 7.35783 25.6128C8.25879 24.109 10.1108 23.3571 12.9137 23.3571ZM39.0415 23.3571C41.4441 23.3571 43.3461 24.1592 44.7476 25.7632C46.2492 27.2669 47 29.2719 47 31.7782C47 34.485 46.099 36.6404 44.2971 38.2444C42.5953 39.7481 40.2428 40.5 37.2396 40.5C33.7359 40.5 30.983 39.1466 28.9808 36.4399C27.0788 33.7331 26.1278 29.8734 26.1278 24.8609C26.1278 20.3496 27.1289 16.1892 29.131 12.3797C31.1331 8.46992 34.1363 4.56015 38.1406 0.650374C38.2407 0.550125 38.3908 0.5 38.5911 0.5C38.8914 0.5 39.1416 0.650374 39.3419 0.951122C39.5421 1.25188 39.5421 1.5025 39.3419 1.703C34.4366 6.71553 31.984 12.6303 31.984 19.4474C31.984 22.2544 32.4846 24.3095 33.4856 25.6128C34.3866 24.109 36.2386 23.3571 39.0415 23.3571Z" fill="white"/>
                                     </svg>
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit auctor sit . auctor sit iaculis in arcu. Vulputate nulla lobortis mauris eget sit. Nulla scelerisque scelerisque congue ac consequat, aliquam molestie lectus eu. Congue iaculis integer curabitur semper sit nunc.
-                                </p>
-                                <article>
+                                </motion.p>
+                                <motion.article
+                                    initial={{scale: 0}}
+                                    whileInView={{scale: [2,1]}}
+                                    variants={{once: true}}
+                                >
                                     <h4 className='text-3xl text-primary font-comorant'>Kevin Luo</h4>
                                     <p className='leading-[175%]'>Chef & Founder</p>
-                                </article>
+                                </motion.article>
                                 <p className='font-bestermind text-6xl '>Kevin Luo</p>
                             </div>
                             <ImageFrame image={chef} />
@@ -176,20 +220,30 @@ function Home() {
                                     <Awards logo={award3} title="Outstanding Chef"/>
                                 </div>
                             </article>
-                            <div className='relative hidden lg:block'>
+                            <motion.div
+                                initial={{translateX: "50%"}} 
+                                whileInView={{translateX: 0}}
+                                transition={{duration: 1}}
+                                className='relative hidden lg:block'
+                            >
                                 <p className='absolute top-3/4 -left-12 font-comorant text-[360px] text-[#FAFAFA] opacity-80 font-bold'>G</p>
                                 <img src={tomatoSause} alt="" />
-                            </div>
+                            </motion.div>
                         </div>
                     </div>
                 </section>
                 <section className='bg-insta bg-cover bg-no-repeat py-11'>
                     <div className="container mx-auto px-4 md:px-0 flex flex-col md:flex-row items-center overflow-hidden">
-                        <article className='max-w-md mb-8 md:mb-0'>
+                        <motion.article
+                            initial={{opacity: 0, translateY: '50%'}}
+                            whileInView={{opacity: 1, translateY: '0'}} 
+                            transition={{duration: 0.7}}
+                            className='max-w-md mb-8 md:mb-0'
+                        >
                             <HeadTitle title="Instagram" subtitle="Photo Gallery" />
                             <p className='mt-6 mb-8'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Volutpat mattis ipsum turpis elit elit scelerisque egestas mu.</p>
                             <button className="btn-pry">View More</button>
-                        </article>
+                        </motion.article>
                         <div className='flex flex-nowrap overflow-x-scroll px-4 gap-4'>
                             <GalleryImage img={insta1} />
                             <GalleryImage img={insta2} />
@@ -201,7 +255,12 @@ function Home() {
                 </section>
                 <section className='bg-about bg-cover bg-no-repeat py-28'>
                     <div className="container mx-auto relative gap-12 md:gap-24 px-4 lg:px-28 flex flex-col md:flex-row items-center">
-                        <article className='flex flex-col gap-4 md:gap-8 lg:gap-16'>
+                        <motion.article
+                            initial={{translateX: '-50%'}} 
+                            whileInView={{translateX: 0}}
+                            transition={{duration: 0.8}}
+                            className='flex flex-col gap-4 md:gap-8 lg:gap-16'
+                        >
                             <HeadTitle title="Contact" subtitle="Find Us" />
                             <article>
                                 <p className='leading-[175%] mb-8'>Lane Ends Bungalow, Whatcroft Hall Lane, Rudheath, CW9 7SG</p>
@@ -209,7 +268,7 @@ function Home() {
                                 <p className='text-white leading-[175%]'>Mon - Fri: 10:00 am - 02:00 am <br /> Sat - Sun: 10:00 am - 03:00 am</p>
                             </article>
                             <button className="btn-pry">Visit Us</button>
-                        </article>
+                        </motion.article>
                         <ImageFrame image={findUs} />
                     </div>
                 </section>

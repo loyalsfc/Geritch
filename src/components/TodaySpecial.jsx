@@ -1,13 +1,22 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 
 const TodaySpecial = ({title, children}) => {
     return (
-        <div className='px-8'>
+        <motion.div 
+            className='px-8'
+            whileInView={{
+                scale: [1, 2, 1, 1],
+                rotate: [0, 270, 270, 0],
+                borderRadius: ["20%", "50%", "50%", "20%"],
+            }}
+            viewport={{once: true}}
+        >
             <h4 className='text-white text-center mb-6 sm:mb-12 font-comorant text-[45px] leading-[130%] tracking-[0.04em]'>{title}</h4>
             <div className='flex flex-col gap-10'>
                 {children}
             </div>
-        </div>
+        </motion.div>
     )
 }
 
