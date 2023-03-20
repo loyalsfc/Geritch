@@ -12,7 +12,7 @@ function Login() {
     return (
         <main>
             <div className='container mx-auto'>
-                <div className="max-w-md mx-auto pb-10 ">
+                <div className="max-w-md mx-auto pb-10 px-4">
                     <Auth
                         supabaseClient={supabase}
                         appearance={{theme: ThemeSupa}}

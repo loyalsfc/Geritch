@@ -29,8 +29,8 @@ function Header() {
                         fill="white"
                     />
                 </svg>
-                <Navigation />
-                <Menu />
+                <Navigation handleClick={handleCloseNav} />
+                <Menu handleClick={handleCloseNav} />
             </div>
             <header className='text-white py-8 lg:py-4'>
                 <div className='container px-4 md:px-0 mx-auto flex justify-between lg:grid grid-cols-3 items-center place-item-center'>
@@ -52,10 +52,10 @@ function Header() {
     )
 }
 
-function Navigation(){
+function Navigation({handleClick}){
     return (
         <ul className='tracking-[0.04em] flex gap-8 flex-col lg:flex-row text-center'>
-                            <li className='cursor-pointer'>
+                            <li className='cursor-pointer' onClick={handleClick}>
                                 <NavLink 
                                     to='/'
                                     className={({isActive, isPending}) =>
@@ -65,7 +65,7 @@ function Navigation(){
                                     Home
                                 </NavLink>
                             </li>
-                            <li className='cursor-pointer'>
+                            <li className='cursor-pointer' onClick={handleClick}>
                                 <NavLink 
                                     to='/page'
                                     className={({isPending, isActive}) =>
@@ -82,11 +82,11 @@ function Navigation(){
     )
 }
 
-function Menu(){
+function Menu({handleClick}){
     const {user} = useSelector(state => state.user)
     return (
-        <ul className='flex items-center flex-col lg:flex-row gap-6'>
-            <li className='cursor-pointer'>
+        <ul className='flex items-center flex-col lg:flex-row gap-8 lg:gap-6'>
+            <li className='cursor-pointer' onClick={handleClick}>
                     {user ? 
                         <NavLink 
                             to="/saves"
@@ -109,7 +109,7 @@ function Menu(){
                     }
             </li>   
             <li className='cursor-pointer hidden lg:block'>
-                    <svg width="2" height="57" viewBox="0 0 2 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="2" height="57" viewBox="0 0 2 57" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M1 0V57" stroke="url(#paint0_radial_0_364)"/>
                         <defs>
                             <radialGradient id="paint0_radial_0_364" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1.5 28.5) rotate(90) scale(28.5 0.5)">
@@ -117,7 +117,7 @@ function Menu(){
                                 <stop offset="1" stopColor="white" stopOpacity="0"/>
                             </radialGradient>
                         </defs>
-                    </svg>
+                </svg>
             </li>
             <li>Book Table</li>
         </ul>
