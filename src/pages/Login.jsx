@@ -1,13 +1,19 @@
 import { Auth } from '@supabase/auth-ui-react'
 import { ThemeSupa } from '@supabase/auth-ui-shared'
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import { supabase } from '../supabaseClient'
 
 function Login() {
-    supabase.auth.onAuthStateChange(async (event, session) => {
-        console.log(event, session)
-    })
-  
+    const navigate = useNavigate()
+    const user = useSelector(state => state.user)
+
+    useEffect(()=>{
+        if(user.user){
+            navigate('/')
+        }
+    }, [])
 
     return (
         <main>
@@ -20,7 +26,6 @@ function Login() {
                         providers={['google', 'facebook', 'twitter']}
                     />
                 </div>
-                {/* <button onClick={signInWithGoogle} className='btn-pry'>Login</button> */}
             </div>
         </main>
     )
