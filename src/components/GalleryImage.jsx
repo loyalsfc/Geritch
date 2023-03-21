@@ -7,7 +7,7 @@ function GalleryImage({img}) {
             initial={{scale: 0}}
             whileInView={{scale: 1}}
             viewport={{once: true}}
-            className='instawrapper w-32 md:w-52 relative shrink-0 overflow-hidden'
+            className='instawrapper w-32 md:w-52 relative shrink-0 overflow-hidden border border-primary/20'
         >
             <div className="opacity-0 hover:opacity-100 transition-all focus:opacity-100 grid w-full h-full bg-black/40 place-content-center absolute top-0 left-0">
                 <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">

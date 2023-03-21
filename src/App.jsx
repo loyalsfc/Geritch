@@ -8,8 +8,10 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Header />
-      <Outlet />
+      <div className="overflow-hidden relative">
+        <Header />
+        <Outlet />
+      </div>
     </QueryClientProvider>
   )
 }

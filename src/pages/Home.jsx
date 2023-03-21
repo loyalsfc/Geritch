@@ -23,14 +23,37 @@ import GalleryImage from '../components/GalleryImage';
 import findUs from '../assets/find-us.png'
 import Footer from '../components/Footer';
 import { motion } from "framer-motion"
+import { useRef } from 'react';
 
-
-function Home() {  
+function Home() {
+    const videoPlayer = useRef(null)
+    const playBtn = useRef()
+    const videoPlayerOverlay = useRef()
+    console.log(videoPlayer)
     const scrollTop = () => {
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
     }
+
+    const playVideo = () => {
+        console.log('playClicked')
+        videoPlayer.current.play()
+    }
+    
+    function videoPlaying(e){
+        e.target.controls = true;
+        videoPlayerOverlay.current.classList.add('hidden')
+    }   
+
+    function videoPaused(e){
+        e.target.controls = false
+        videoPlayerOverlay.current.classList.remove('hidden')
+    }
+
     return (
         <>
+            <svg className='absolute -z-10' width="1501" height="8595" viewBox="0 0 1501 8595" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path opacity="0.2" d="M1396 -649C963.167 -633.167 43.6 -430.7 -172 252.5C-387.6 935.7 322.833 1673.5 705 1957C1116.17 2228.33 1691.8 3333.5 705 5583.5C-528.5 8396 -362.5 8610.5 705 10042.5L1498.5 11071.5C1231.83 11106.8 724.1 11376.9 826.5 12174.5C928.9 12972.1 -168.167 13896.5 -729.5 14259" stroke="#ABABAB" strokeWidth="2"/>
+                </svg>
             <section className='pb-8 md:mb-24'>
                 <div className="container mx-auto px-4 flex flex-col-reverse md:flex-row items-center lg:px-28 gap-8 lg:gap-14 relative">
                     <motion.article
@@ -200,14 +223,21 @@ function Home() {
                     </div>
                 </section>
                 <section className='md:h-screen overflow-hidden relative'>
-                    <div className="absolute h-full w-full top-0 left-0 bg-black/[0.4] grid place-content-center">
-                        <button className='h-28 w-28 border grid place-content-center border-primary rounded-full'>
+                    <div ref={videoPlayerOverlay} className="absolute h-full w-full top-0 left-0 bg-black/[0.4] grid place-content-center z-10">
+                        <button onClick={playVideo} ref={playBtn} className='h-28 w-28 border grid place-content-center border-primary rounded-full'>
                             <svg width="24" height="29" viewBox="0 0 24 29" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M24 14.5L0 29L0 0L24 14.5Z" fill="white"/>
                             </svg>
                         </button>
                     </div>
-                    <video src={video} poster="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" loop className="h-full w-full object-cover"></video>
+                    <video 
+                    ref={videoPlayer} 
+                    src={video} 
+                    onPlay={videoPlaying}
+                    onPause={videoPaused}
+                    poster="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" 
+                    loop 
+                    className="h-full w-full object-cover"></video>
                 </section>
                 <section className='bg-about bg-cover bg-no-repeat py-28 relative'>
                     <div className="container mx-auto overflow-hidden">
@@ -227,7 +257,7 @@ function Home() {
                                 whileInView={{translateX: 0}}
                                 transition={{duration: 1}}
                                 viewport={{once: true}}
-                                className='relative hidden lg:block'
+                                className='relative border border-primary/20 hidden lg:block'
                             >
                                 <p className='absolute top-3/4 -left-12 font-comorant text-[360px] text-[#FAFAFA] opacity-80 font-bold'>G</p>
                                 <img src={tomatoSause} alt="" />
@@ -242,13 +272,13 @@ function Home() {
                             whileInView={{opacity: 1, translateY: '0'}} 
                             transition={{duration: 0.7}}
                             viewport={{once: true}}
-                            className='max-w-md mb-8 md:mb-0'
+                            className='md:max-w-md mb-8 md:mb-0'
                         >
                             <HeadTitle title="Instagram" subtitle="Photo Gallery" />
                             <p className='mt-6 mb-8'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Volutpat mattis ipsum turpis elit elit scelerisque egestas mu.</p>
                             <button className="btn-pry">View More</button>
                         </motion.article>
-                        <div className='flex flex-nowrap overflow-x-scroll px-4 gap-4'>
+                        <div className='flex flex-nowrap overflow-x-scroll md:px-4 gap-4 w-full md:w-fit'>
                             <GalleryImage img={insta1} />
                             <GalleryImage img={insta2} />
                             <GalleryImage img={insta3} />
