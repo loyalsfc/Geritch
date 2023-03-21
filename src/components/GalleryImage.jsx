@@ -6,6 +6,7 @@ function GalleryImage({img}) {
         <motion.div
             initial={{scale: 0}}
             whileInView={{scale: 1}}
+            viewport={{once: true}}
             className='instawrapper w-32 md:w-52 relative shrink-0 overflow-hidden'
         >
             <div className="opacity-0 hover:opacity-100 transition-all focus:opacity-100 grid w-full h-full bg-black/40 place-content-center absolute top-0 left-0">

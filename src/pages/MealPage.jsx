@@ -3,6 +3,7 @@ import { useQuery } from 'react-query'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { addSaves, removeSaves } from '../app/savesSlice'
+import { motion } from 'framer-motion'
 import Loader from '../components/Loader'
 import Toast from '../components/Toast'
 import RemoveSave from '../components/RemoveSave'
@@ -72,39 +73,82 @@ function MealPage() {
                     <article className='mb-16'>
                         <h3 className='meal-title'>MEAL DETAILS</h3>
                         <div className="flex flex-col md:flex-row gap-8">
-                            <div className="lg:w-1/3 shrink-0">
+                            <motion.div 
+                                initial={{scale: 1.5}}
+                                animate={{scale: 1}}
+                                transition={{duration: 0.7}}
+                                className="lg:w-1/3 shrink-0"
+                            >
                                 <img src={data?.meals?.[0].strMealThumb} height="500" width="500" className='w-full h-80 object-cover' loading='lazy' alt={data?.meals?.[0].strMeal} />
-                            </div>
+                            </motion.div>
                             <div className='flex flex-col gap-4'>
-                                <h2 className='text-4xl mb-2 text-primary font-bold font-comorant'>{data?.meals?.[0].strMeal}</h2>
-                                <p className='text-sm'>Category: {data?.meals?.[0].strCategory}</p>
-                                <div className='my-4 flex flex-wrap gap-4'>
+                                <motion.h2 
+                                    initial={{opacity: 0}}
+                                    whileInView={{opacity: 1}}
+                                    transition={{duration: 0.4}}
+                                    viewport={{once: true}}
+                                    className='text-4xl mb-2 text-primary font-bold font-comorant'
+                                >
+                                    {data?.meals?.[0].strMeal}
+                                </motion.h2>
+                                <motion.p
+                                    initial={{opacity: 0}}
+                                    whileInView={{opacity: 1}}
+                                    transition={{duration: 0.4, delay: 0.4}}
+                                    viewport={{once: true}}
+                                    className='text-sm'
+                                >
+                                    Category: {data?.meals?.[0].strCategory}
+                                </motion.p>
+                                <motion.div
+                                    initial={{opacity: 0}}
+                                    whileInView={{opacity: 1}}
+                                    transition={{duration: 0.4, delay: 0.8}}
+                                    viewport={{once: true}} 
+                                    className='my-4 flex flex-wrap gap-4'
+                                >
                                     { 
                                         data?.meals?.[0].strTags?.split(',').map((tag, index) => {
                                             return <span key={index} className='bg-primary py-2 px-4 rounded-full text-black font-semibold cursor-pointer hover:opacity-80'>{tag}</span>
                                         })
                                     }
-                                </div>
+                                </motion.div>
                                 {saves.some(meal => meal?.item?.idMeal == mealId) ?(
-                                        <button 
+                                        <motion.button
+                                            initial={{translateY: '50%'}}
+                                            whileInView={{translateY: 0}}
+                                            whileTap={{scale: 0.7}}
+                                            transition={{duration: 0.4}}
+                                            viewport={{once: true}}
                                             onClick={handleDelete} 
                                             className='meal-page-btn'
                                         >
                                             Remove Meal
-                                        </button>
+                                        </motion.button>
                                     ):(
-                                        <button 
+                                        <motion.button
+                                            initial={{translateY: '50%'}}
+                                            whileInView={{translateY: 0}}
+                                            whileTap={{scale: 0.7}}
+                                            transition={{duration: 0.6}}
+                                            viewport={{once: true}}
                                             onClick={handleSaveMeal} 
                                             className='meal-page-btn'
                                         >
                                             Save Meal
-                                        </button>
+                                        </motion.button>
                                     )
                                 }
                             </div>
                         </div>
                     </article>
-                    <article className='mb-16'>
+                    <motion.article
+                        initial={{scale: 0.8}}
+                        whileInView={{scale: 1}}
+                        transition={{duration: 0.6}}
+                        viewport={{once: true}} 
+                        className='mb-16'
+                    >
                         <h3 className="meal-title">INGREDIENTS</h3>
                         <table className='w-full border'>
                             <tbody>
@@ -122,8 +166,14 @@ function MealPage() {
                                 }
                             </tbody>
                         </table>
-                    </article>
-                    <article className='mb-16'>
+                    </motion.article>
+                    <motion.article
+                        initial={{opacity: 0}}
+                        whileInView={{opacity: 1}}
+                        transition={{duration: 0.4, delay: 0.4}}
+                        viewport={{once: true}} 
+                        className='mb-16'
+                    >
                         <h3 className="meal-title">INSTRUCTIONS</h3>
                         <ol className='leading-8'>
                             {
@@ -132,7 +182,7 @@ function MealPage() {
                                 })
                             }
                         </ol>
-                    </article>
+                    </motion.article>
                     <Footer />
                 </div>
             </div>

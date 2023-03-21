@@ -7,7 +7,7 @@ function HeadTitle({title, subtitle}) {
         <motion.article
             initial={{marginTop: "100px"}}
             whileInView={{marginTop: "0"}}
-            variants={{once: true}} 
+            viewport={{once: true}} 
             className='font-comorant'
         >
             <h4 className='text-white font-2xl mb-2 font-bold'>{title}</h4>

@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'
 import { NavLink, Link  } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import {motion} from 'framer-motion'
 
 function Header() {
     const closeNav = useRef()    
@@ -10,7 +11,6 @@ function Header() {
     const handleOpenNav = () => {
         closeNav.current.classList.replace('w-0', 'w-full')
     }
-
 
     return (
         <div className="container mx-auto mb-8">
@@ -24,7 +24,10 @@ function Header() {
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                     >
-                    <path
+                    <motion.path
+                        initial={{ pathLength: 0 }}
+                        whileInView={{ pathLength: 1 }}
+                        whileTap={{scale: 0.7}}
                         d="M6.2253 4.81108C5.83477 4.42056 5.20161 4.42056 4.81108 4.81108C4.42056 5.20161 4.42056 5.83477 4.81108 6.2253L10.5858 12L4.81114 17.7747C4.42062 18.1652 4.42062 18.7984 4.81114 19.1889C5.20167 19.5794 5.83483 19.5794 6.22535 19.1889L12 13.4142L17.7747 19.1889C18.1652 19.5794 18.7984 19.5794 19.1889 19.1889C19.5794 18.7984 19.5794 18.1652 19.1889 17.7747L13.4142 12L19.189 6.2253C19.5795 5.83477 19.5795 5.20161 19.189 4.81108C18.7985 4.42056 18.1653 4.42056 17.7748 4.81108L12 10.5858L6.2253 4.81108Z"
                         fill="white"
                     />
@@ -41,11 +44,29 @@ function Header() {
                     <div className='hidden lg:block place-self-end'>
                         <Menu />
                     </div>
-                    <svg onClick={handleOpenNav} className='lg:hidden' viewBox="0 0 100 80" width="30" height="30">
-                        <rect className="fill-white stroke-white"width="100" height="10" rx="10"></rect>
-                        <rect className="fill-white stroke-white"y="30" width="100" height="10" rx="10"></rect>
-                        <rect className="fill-white stroke-white"y="60" width="100" height="10" rx="10"></rect>
-                    </svg>
+                    <motion.svg 
+                        onClick={handleOpenNav} 
+                        className='lg:hidden' 
+                        viewBox="0 0 100 80" 
+                        width="30" 
+                        height="30"
+                    >
+                        <motion.rect 
+                            initial={{rotate: 45}} 
+                            animate={{rotate: 0}}
+                            transition={{duration: 0.7}}
+                            className="fill-white stroke-white" width="100" height="10" rx="10"/>
+                        <motion.rect 
+                            initial={{opacity: 0}} 
+                            animate={{opacity: 1}}
+                            transition={{duration: 0.4, delay: 0.3}}
+                            className="fill-white stroke-white" y="30" width="100" height="10" rx="10"/>
+                        <motion.rect 
+                            initial={{rotate: 135}} 
+                            animate={{rotate: 0}}
+                            transition={{duration: 0.7}}
+                            className="fill-white stroke-white" y="60" width="100" height="10" rx="10"/>
+                    </motion.svg>
                 </div>
             </header>
         </div>

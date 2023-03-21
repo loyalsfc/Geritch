@@ -37,6 +37,7 @@ function Home() {
                         initial={{ opacity: 0, scale: 0.5}} 
                         whileInView={{opacity: 1, scale: 1}}
                         transition={{duration: 0.5}}
+                        viewport={{once: true}}
                         className='md:w-1/2 mt-6 flex flex-col gap-2 shrink-0 lg:pr-6'
                     >
                         <h3 className='font-comorant font-bold text-2xl tracking-[0.04em] text-white'>Chase the new Flavour</h3>
@@ -124,11 +125,12 @@ function Home() {
                     </div>
                 </section>
                 <section>
-                    <div className="container mx-auto py-28 px-0 md:px-0">
+                    <div className="container mx-auto py-28 px-0 md:px-0 overflow-hidden">
                         <motion.article
                             initial={{scale: 2}} 
                             whileInView={{scale: 1}}
                             transition={{duration: 0.5}}
+                            viewport={{once: true}}
                             className='flex flex-col gap-2 items-center mb-8 md:mb-16 font-comorant'
                         >
                             <h3 className='text-2xl font-bold leading-[130%] tracking-[0.04em] text-white '>Menu that Fits You Palatte</h3>
@@ -167,7 +169,7 @@ function Home() {
                     </div>
                 </section>
                 <section className='bg-about bg-cover bg-no-repeat py-28'>
-                    <div className="container mx-auto px-4 md:px-0">
+                    <div className="container mx-auto px-4 md:px-0 overflow-hidden">
                         <div className="flex flex-col md:flex-row-reverse items-center lg:px-28 gap-14">
                             <div className='md:w-1/2 flex flex-col gap-10'>
                                 <HeadTitle title="Chef's Word" subtitle="What We Believe In"/>
@@ -186,7 +188,7 @@ function Home() {
                                 <motion.article
                                     initial={{scale: 0}}
                                     whileInView={{scale: [2,1]}}
-                                    variants={{once: true}}
+                                    viewport={{once: true}}
                                 >
                                     <h4 className='text-3xl text-primary font-comorant'>Kevin Luo</h4>
                                     <p className='leading-[175%]'>Chef & Founder</p>
@@ -207,8 +209,8 @@ function Home() {
                     </div>
                     <video src={video} poster="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" loop className="h-full w-full object-cover"></video>
                 </section>
-                <section className='bg-about py-28 relative'>
-                    <div className="container mx-auto">
+                <section className='bg-about bg-cover bg-no-repeat py-28 relative'>
+                    <div className="container mx-auto overflow-hidden">
                         <img src={rounded} alt="" className='absolute left-0 top-4 md:top-12 h-16 md:h-24'/>
                         <div className='flex items-center gap-8 md:gap-16 px-4 lg:px-28 relative'>
                             <article>
@@ -224,6 +226,7 @@ function Home() {
                                 initial={{translateX: "50%"}} 
                                 whileInView={{translateX: 0}}
                                 transition={{duration: 1}}
+                                viewport={{once: true}}
                                 className='relative hidden lg:block'
                             >
                                 <p className='absolute top-3/4 -left-12 font-comorant text-[360px] text-[#FAFAFA] opacity-80 font-bold'>G</p>
@@ -232,12 +235,13 @@ function Home() {
                         </div>
                     </div>
                 </section>
-                <section className='bg-insta bg-cover bg-no-repeat py-11'>
+                <section className='bg-insta bg-cover bg-no-repeat py-11 overflow-hidden'>
                     <div className="container mx-auto px-4 md:px-0 flex flex-col md:flex-row items-center overflow-hidden">
                         <motion.article
                             initial={{opacity: 0, translateY: '50%'}}
                             whileInView={{opacity: 1, translateY: '0'}} 
                             transition={{duration: 0.7}}
+                            viewport={{once: true}}
                             className='max-w-md mb-8 md:mb-0'
                         >
                             <HeadTitle title="Instagram" subtitle="Photo Gallery" />
@@ -254,11 +258,12 @@ function Home() {
                     </div>
                 </section>
                 <section className='bg-about bg-cover bg-no-repeat py-28'>
-                    <div className="container mx-auto relative gap-12 md:gap-24 px-4 lg:px-28 flex flex-col md:flex-row items-center">
+                    <div className="container overflow-hidden mx-auto relative gap-12 md:gap-24 px-4 lg:px-28 flex flex-col md:flex-row items-center">
                         <motion.article
                             initial={{translateX: '-50%'}} 
                             whileInView={{translateX: 0}}
                             transition={{duration: 0.8}}
+                            viewport={{once: true}}
                             className='flex flex-col gap-4 md:gap-8 lg:gap-16'
                         >
                             <HeadTitle title="Contact" subtitle="Find Us" />
