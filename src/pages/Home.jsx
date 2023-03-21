@@ -29,7 +29,7 @@ function Home() {
     const videoPlayer = useRef(null)
     const playBtn = useRef()
     const videoPlayerOverlay = useRef()
-    console.log(videoPlayer)
+    
     const scrollTop = () => {
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
     }
@@ -51,7 +51,7 @@ function Home() {
 
     return (
         <>
-            <svg className='absolute -z-10' width="1501" height="8595" viewBox="0 0 1501 8595" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className='absolute -z-10 -top[649px]' width="1501" height="8595" viewBox="0 0 1501 8595" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path opacity="0.2" d="M1396 -649C963.167 -633.167 43.6 -430.7 -172 252.5C-387.6 935.7 322.833 1673.5 705 1957C1116.17 2228.33 1691.8 3333.5 705 5583.5C-528.5 8396 -362.5 8610.5 705 10042.5L1498.5 11071.5C1231.83 11106.8 724.1 11376.9 826.5 12174.5C928.9 12972.1 -168.167 13896.5 -729.5 14259" stroke="#ABABAB" strokeWidth="2"/>
                 </svg>
             <section className='pb-8 md:mb-24'>

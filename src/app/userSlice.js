@@ -1,10 +1,12 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { supabase } from "../supabaseClient";
 
-const { data: { user } } = await supabase.auth.getUser()
+export const getUserDetail = createAsyncThunk('user/getUserDetail', async() => {
+    return await supabase.auth.getUser()
+});
 
 const initialState = {
-    user: user
+    user: null
 }
 
 const userSlice = createSlice({
@@ -14,9 +16,14 @@ const userSlice = createSlice({
         setUser: (state, action) => {
             state.user  = action.payload
         }
+    },
+    extraReducers: {
+        [getUserDetail.fulfilled]: (state, action) => {
+            state.user = action.payload?.data?.user
+        }
     }
 })
 
-export {user}
+export {initialState}
 export const {setUser} = userSlice.actions
 export default userSlice.reducer

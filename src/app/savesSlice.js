@@ -1,15 +1,15 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { supabase } from "../supabaseClient";
-import {user} from './userSlice'
 
-const { data, error } = await supabase
-  .from('saves')
-  .select()
-  .eq('user_id', user?.id)
-
+export const getSaveMeal = createAsyncThunk('saves/getSaveMeal', async (id) => {
+    return await supabase
+        .from('saves')
+        .select()
+        .eq('user_id', id)
+})
 
 const initialState = {
-    saves: data
+    saves: []
 }
 
 const savesSlice = createSlice({
@@ -23,6 +23,11 @@ const savesSlice = createSlice({
         removeSaves: (state, action) => {
             state.saves = state.saves.filter(item => item.id != action.payload)
             localStorage.savedMeals = JSON.stringify(state.saves)
+        }
+    },
+    extraReducers: {
+        [getSaveMeal.fulfilled]: (state, action) => {
+            state.saves = action.payload.data
         }
     }
 })

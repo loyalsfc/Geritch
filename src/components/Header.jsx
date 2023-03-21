@@ -76,29 +76,29 @@ function Header() {
 function Navigation({handleClick}){
     return (
         <ul className='tracking-[0.04em] flex gap-8 flex-col lg:flex-row text-center'>
-                            <li className='cursor-pointer' onClick={handleClick}>
-                                <NavLink 
-                                    to='/'
-                                    className={({isActive, isPending}) =>
-                                        isPending ? "pending" : isActive ? "active" : ""
-                                    }
-                                >
-                                    Home
-                                </NavLink>
-                            </li>
-                            <li className='cursor-pointer' onClick={handleClick}>
-                                <NavLink 
-                                    to='/page'
-                                    className={({isPending, isActive}) =>
-                                        isPending ? "pending" : isActive ? "active" : ""
-                                    }    
-                                >
-                                    Pages
-                                </NavLink>
-                            </li>
-                            <li className='cursor-pointer'>Contact Us</li>
-                            <li className='cursor-pointer'>Blog</li>
-                            <li className='cursor-pointer'>Landing</li>
+            <li className='cursor-pointer' onClick={handleClick}>
+                <NavLink 
+                    to='/'
+                    className={({isActive, isPending}) =>
+                        isPending ? "pending" : isActive ? "active" : ""
+                    }
+                >
+                    Home
+                </NavLink>
+            </li>
+            <li className='cursor-pointer' onClick={handleClick}>
+                <NavLink 
+                    to='/page'
+                    className={({isPending, isActive}) =>
+                        isPending ? "pending" : isActive ? "active" : ""
+                    }    
+                >
+                    Pages
+                </NavLink>
+            </li>
+            <li className='cursor-pointer'>Contact Us</li>
+            <li className='cursor-pointer'>Blog</li>
+            <li className='cursor-pointer'>Landing</li>
         </ul>
     )
 }
@@ -108,26 +108,26 @@ function Menu({handleClick}){
     return (
         <ul className='flex items-center flex-col lg:flex-row gap-8 lg:gap-6'>
             <li className='cursor-pointer' onClick={handleClick}>
-                    {user ? 
-                        <NavLink 
-                            to="/saves"
-                            className={({isPending, isActive}) =>
-                                isPending ? 'pending' : isActive ? "active" : ""
-                            }
-                        >
-                            Saves
-                        </NavLink>
-                        : 
-                        <NavLink 
-                            to="/login"
-                            className={({isPending, isActive}) =>
-                                isPending ? 'pending' : isActive ? "active" : ""
-                            }
-                        >
-                            Registration / Login
-                        </NavLink>
+                {user ? 
+                    <NavLink 
+                        to="/saves"
+                        className={({isPending, isActive}) =>
+                            isPending ? 'pending' : isActive ? "active" : ""
+                        }
+                    >
+                        Saves
+                    </NavLink>
+                    : 
+                    <NavLink 
+                        to="/login"
+                        className={({isPending, isActive}) =>
+                            isPending ? 'pending' : isActive ? "active" : ""
+                        }
+                    >
+                        Registration / Login
+                    </NavLink>
 
-                    }
+                }
             </li>   
             <li className='cursor-pointer hidden lg:block'>
                 <svg width="2" height="57" viewBox="0 0 2 57" fill="none" xmlns="http://www.w3.org/2000/svg">
