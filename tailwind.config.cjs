@@ -17,7 +17,7 @@ module.exports = {
       },
       backgroundImage: {
         about: "url('/src/assets/about-bg.png')",
-        insta: "linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/src/assets/insta/insta-bg.png')"
+        // insta: "linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/src/assets/insta/insta-bg.png')"
       },
       boxShadow: {
         newsletter: '22px 30px 95px 1px rgba(0, 0, 0, 0.7)'
