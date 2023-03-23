@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import removeIcon from '../assets/confirm.png'
+import gifLoader from '../assets/gif_loader.gif'
 import { useDispatch } from 'react-redux'
 import { supabase } from '../supabaseClient'
 import { removeSaves } from '../app/savesSlice'
@@ -24,7 +25,7 @@ function RemoveSave({id, dismiss}) {
             <article className="bg-white text-black w-[90%] mx-2 max-w-[400px]">
                 <div className=" shadow-md font-bold p-2">Remove Meal</div>
                 <div className='min min-h-[128px]'>{showLoader ? (
-                        <img src='https://media.tenor.com/SLFiTi_nrQ4AAAAC/loader.gif' className='h-28 my-2 mx-auto' />
+                    <img src={gifLoader} className='h-28 my-2 mx-auto' />
                     ):(<>
                             <div className='flex items-center gap-1 font-semibold pl-2 py-4 pr-10'>
                                 <img src={removeIcon} alt="" />
