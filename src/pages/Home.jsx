@@ -24,6 +24,7 @@ import findUs from '../assets/find-us.png'
 import Footer from '../components/Footer';
 import { motion } from "framer-motion"
 import { useRef } from 'react';
+import { Link } from 'react-router-dom';
 
 function Home() {
     const videoPlayer = useRef(null)
@@ -67,7 +68,7 @@ function Home() {
                         <Icon />
                         <h1 className='font-comorant font-bold leading-[120%] text-5xl md:text-7xl lg:text-[90px] text-primary tracking-[0.04em]'>The key to Fine dining</h1>
                         <p className='leading-[175%] tracking-[0.04em] mb-2'>Sit tellus lobortis sed senectus vivamus molestie. Condimentum volutpat morbi facilisis quam scelerisque sapien. Et, penatibus aliquam amet tellus </p>
-                        <button className='btn-pry'>Explore Menu</button>
+                        <Link to="/page"><button className='btn-pry'>Explore Menu</button></Link>
                     </motion.article>
                     <ImageFrame image={hero} />
                     <div onClick={()=>
