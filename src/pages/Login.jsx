@@ -1,19 +1,9 @@
 import { Auth } from '@supabase/auth-ui-react'
 import { ThemeSupa } from '@supabase/auth-ui-shared'
-import React, { useEffect } from 'react'
-import { useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import React from 'react'
 import { supabase } from '../supabaseClient'
 
 function Login() {
-    const navigate = useNavigate()
-    const user = useSelector(state => state.user)
-
-    useEffect(()=>{
-        if(user.user){
-            navigate('/')
-        }
-    }, [])
 
     return (
         <main>
