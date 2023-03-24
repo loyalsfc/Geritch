@@ -14,10 +14,13 @@ function Page() {
     )
     const [currentCategory, setCurrentCategory] = useState('')
 
+    //Once categories data is loaded
+    //Set the first currentCategory to the first item in the array
     useEffect(()=>{
         setCurrentCategory(data?.categories[0].strCategory)
     }, [data])
 
+    //Display loader while data is fetching 
     if(isLoading){
         return <Loader />
     }
@@ -46,7 +49,11 @@ function Page() {
                     }
                 </div>
                 <div className='mb-16'>
-                    {currentCategory && <FetchMeals category={currentCategory}/>}
+
+                    {   //When curretCategory state is updated
+                        //Display the meals in the category
+                        currentCategory && <FetchMeals category={currentCategory}/>
+                    }
                 </div>
                 <Footer />
             </div>

@@ -4,12 +4,14 @@ import Loader from './Loader'
 import MealCard from './MealCard'
 
 function FetchMeals({category}) {
-    
+    //Set category to depending array
+    //Once category changes, useQuery can make a new API call
     const {isLoading, error, data} = useQuery(['meals', category], () =>
         fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`)
         .then(res => res.json())
     )
 
+    //Display loader while data is loading 
     if(isLoading) return <Loader />
 
     return (

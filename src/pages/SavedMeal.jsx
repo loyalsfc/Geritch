@@ -20,14 +20,19 @@ function SavedMeal() {
 
     return (
         <>
-        {user ? ( 
+        {   //Check if user is sign in 
+            //If yes display saved meals
+            user ? ( 
             <main className='mt-8 pb-16'>
                 {showRemoveModal && <RemoveSave id={deleteId} dismiss={setShowRemoveModal} />}
                 {displayToast && <Toast text="Meal Removed Successfully" handleClick={()=>setDisplayToast(false)}/>}
                 <div className="container mx-auto">
                     <div className="max-w-4xl mx-auto px-4">
                         <h3 className="meal-title">SAVED MEALS</h3>
-                        {saves.length ? (
+                        {
+                            //Check if the savedmeals array is empty 
+                            //If not, display the saved meals
+                            saves.length ? (
                             <ul className='mb-16'>
                                 {
                                     saves.map(save => {
@@ -51,6 +56,7 @@ function SavedMeal() {
                                 }
                             </ul>
                         ):(
+                            //Otherwise shows that saved meals are empty
                             <p className='text-center mt-8 italic text-primary mb-40'><i>You have no meals saved yet</i></p>
                         )}
                         <Footer />
@@ -58,6 +64,7 @@ function SavedMeal() {
                 </div>
             </main>
         ):(
+            //Otherwise, display the login component
             <Login />
         )
         }

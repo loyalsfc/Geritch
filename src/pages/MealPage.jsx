@@ -25,6 +25,7 @@ function MealPage() {
     const [toastText, setToastText] = useState("Meal Saved Successfully")
 
     useEffect(()=>{
+        //Hide notification toast after 10 seconds
         const intevalId = setInterval(() => {
             setDisplayToast(false)
         }, 10000); 
@@ -33,23 +34,35 @@ function MealPage() {
     }, [displayToast])
 
     useEffect(()=>{
+        //Get the meal id and set te id for delete
         const meal = saves.find(meal => meal?.item?.idMeal == mealId)
         setDeleteId(meal?.id)
     }, [])
 
     const handleSaveMeal = async (e) => {
+        //Get the save meal button 
         const btn = e.currentTarget
+        //Check if user is signed in
         if(user){
+            //Set the btn text to a loader
             btn.innerHTML = "<div class='h-5 w-5 rounded-full border-4 mx-auto border-r-white animate-spin'></div>"
+            // Change the notification text to success
             setToastText("Meal Saved Successfully")
+            //Save the meal to the database
             const {data: savedMeal} = await supabase.from('saves')
                 .insert({user_id: user?.id, item: data?.meals?.[0]})
                 .select()
+            //On success, add the result to the saved meal
             dispatch(addSaves(savedMeal[0]))
+            //Update the deleteId state with the saved Id
             setDeleteId(savedMeal[0].id)
+            //Show toast 
             setDisplayToast(true)
+            //Restore button text to default
             btn.innerHTML = "Save Meal"
         } else {
+            //If user is not signed in, show the toast 
+            //Indicating the user that they are not signed in 
             setToastText('You are not sign in')
             setDisplayToast(true)
         }
@@ -59,7 +72,7 @@ function MealPage() {
         setShowRemoveModal(true)
     }
 
-    
+    //If api is still loading, display the loader
     if(isLoading){
         return <Loader />
     }
