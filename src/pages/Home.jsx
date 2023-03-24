@@ -56,7 +56,7 @@ function Home() {
                 <path opacity="0.2" d="M1396 -649C963.167 -633.167 43.6 -430.7 -172 252.5C-387.6 935.7 322.833 1673.5 705 1957C1116.17 2228.33 1691.8 3333.5 705 5583.5C-528.5 8396 -362.5 8610.5 705 10042.5L1498.5 11071.5C1231.83 11106.8 724.1 11376.9 826.5 12174.5C928.9 12972.1 -168.167 13896.5 -729.5 14259" stroke="#ABABAB" strokeWidth="2"/>
                 </svg>
             <section className='pb-8 md:mb-24'>
-                <div className="container mx-auto px-4 flex flex-col-reverse md:flex-row items-center lg:px-28 gap-8 lg:gap-14 relative">
+                <div className="container mx-auto px-4 flex flex-col-reverse md:flex-row items-center md:justify-between lg:px-28 gap-8 lg:gap-14 relative">
                     <motion.article
                         initial={{ opacity: 0, scale: 0.5}} 
                         whileInView={{opacity: 1, scale: 1}}
@@ -194,7 +194,7 @@ function Home() {
                 </section>
                 <section className='bg-about bg-cover bg-no-repeat py-28'>
                     <div className="container mx-auto px-4 md:px-0 overflow-hidden">
-                        <div className="flex flex-col md:flex-row-reverse items-center lg:px-28 gap-14">
+                        <div className="flex flex-col md:flex-row-reverse items-center md:justify-between lg:px-28 gap-14">
                             <div className='md:w-1/2 flex flex-col gap-10'>
                                 <HeadTitle title="Chef's Word" subtitle="What We Believe In"/>
                                 <motion.p
@@ -243,7 +243,7 @@ function Home() {
                 <section className='bg-about bg-cover bg-no-repeat py-28 relative'>
                     <div className="container mx-auto overflow-hidden">
                         <img src={rounded} alt="" className='absolute left-0 top-4 md:top-12 h-16 md:h-24'/>
-                        <div className='flex items-center gap-8 md:gap-16 px-4 lg:px-28 relative'>
+                        <div className='flex items-center md:justify-between gap-8 md:gap-16 px-4 lg:px-28 relative'>
                             <article>
                                 <HeadTitle title="Awards & Recognition" subtitle="Our Laurels"/>
                                 <div className='grid sm:grid-cols-2 gap-y-16 mt-16'>
@@ -289,7 +289,7 @@ function Home() {
                     </div>
                 </section>
                 <section className='bg-about bg-cover bg-no-repeat py-28'>
-                    <div className="container overflow-hidden mx-auto relative gap-12 md:gap-24 px-4 lg:px-28 flex flex-col md:flex-row items-center">
+                    <div className="container overflow-hidden mx-auto relative gap-12 md:gap-24 px-4 lg:px-28 flex flex-col md:flex-row items-center md:justify-between">
                         <motion.article
                             initial={{translateX: '-50%'}} 
                             whileInView={{translateX: 0}}
