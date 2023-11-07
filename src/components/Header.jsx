@@ -88,12 +88,12 @@ function Navigation({handleClick}){
             </li>
             <li className='cursor-pointer' onClick={handleClick}>
                 <NavLink 
-                    to='/page'
+                    to='/meals'
                     className={({isPending, isActive}) =>
                         isPending ? "pending" : isActive ? "active" : ""
                     }    
                 >
-                    Pages
+                    Meals
                 </NavLink>
             </li>
             <li className='cursor-pointer'>Contact Us</li>

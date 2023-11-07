@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 
 function ImageFrame({image}) {
     return (
-        <div className='relative p-6 z-10'>
+        <div className='relative p-6 z-10 md:w-full md:h-full '>
             <motion.div 
                 className='w-[287px] h-[287px] absolute bg-primary -z-10'
                 initial={{right: '50%', top: '50%'}}
@@ -11,15 +11,17 @@ function ImageFrame({image}) {
                 transition={{duration: 0.5}}
                 viewport={{once: true}}
             />
-            <motion.img 
-                src={image} 
-                alt="" 
-                className='z-10'
-                initial={{scale: 0.5, opacity: 0}}
-                whileInView={{scale: 1, opacity: 1}}
-                transition={{duration: 1, delay: 0.4}}
-                viewport={{ once: true }}
-            />
+            <div className='md:w-full md:h-full'>
+                <motion.img 
+                    src={image} 
+                    alt="" 
+                    className='z-10'
+                    initial={{scale: 0.5, opacity: 0}}
+                    whileInView={{scale: 1, opacity: 1}}
+                    transition={{duration: 1, delay: 0.4}}
+                    viewport={{ once: true }}
+                />
+            </div>
             <motion.div 
                 className='w-[287px] h-[287px] absolute bottom-0 left-0 bg-primary -z-10'
                 initial={{bottom: '50%', left: '50%'}}
